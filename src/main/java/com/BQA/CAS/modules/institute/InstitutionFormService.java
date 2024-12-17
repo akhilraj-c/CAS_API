@@ -10,7 +10,7 @@ import java.util.List;
 
 public interface InstitutionFormService {
     CommonResponse<RegistrationResponse> institutionRegistration(RegistrationRequest request);
-    Integer updateStatusByEmail(Long id, Integer status);
+    CommonResponse<PostSuccessResponse> updateStatusByEmail(Long id, Integer status);
     CommonResponse<PostSuccessResponse> approveInstitute(Long id,int approveStatus);
     CommonResponse<List<InstituteForm>> getAllInstituteForms();
     CommonResponse<List<InstituteForm>> getInstituteFormsByEmail();

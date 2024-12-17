@@ -88,7 +88,7 @@ public class InstituteFormServiceImpl implements InstitutionFormService {
 
     @Override
     @Transactional
-    public Integer updateStatusByEmail(Long id, Integer status) {
+    public CommonResponse<PostSuccessResponse> updateStatusByEmail(Long id, Integer status) {
         Integer currentStatus = repository.findStatusById(id);
         if (currentStatus == null) {
             throw new EntityNotFoundException("No record found for email: " + id);
@@ -101,7 +101,11 @@ public class InstituteFormServiceImpl implements InstitutionFormService {
         if (rowsUpdated == 0) {
             throw new EntityNotFoundException("No record found for email: " + id);
         }
-        return rowsUpdated;
+        CommonResponse<PostSuccessResponse> response = new CommonResponse();
+        PostSuccessResponse resData = new PostSuccessResponse();
+        resData.setMessage("Approved Successfully");
+        response.setData(resData);
+        return response;
     }
 
 

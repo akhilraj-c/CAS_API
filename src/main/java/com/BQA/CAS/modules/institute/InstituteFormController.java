@@ -57,9 +57,9 @@ public class InstituteFormController {
     }
 
     @PostMapping(ApiUrls.APPROVE_EDUSCRIBE)
-    public ResponseEntity<Integer> approveEduscribe(@RequestBody Long id) {
+    public ResponseEntity<CommonResponse<PostSuccessResponse>> approveEduscribe(@RequestParam Long id) {
         try {
-            final Integer response = service.updateStatusByEmail(id,3);
+            CommonResponse<PostSuccessResponse> response = service.updateStatusByEmail(id,7);
             return ResponseEntity.ok(response);
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
