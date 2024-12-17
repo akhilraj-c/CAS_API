@@ -14,4 +14,5 @@ public interface InstitutionFormService {
     CommonResponse<PostSuccessResponse> approveInstitute(Long id,int approveStatus);
     CommonResponse<List<InstituteForm>> getAllInstituteForms();
     CommonResponse<List<InstituteForm>> getInstituteFormsByEmail();
+    CommonResponse<InstituteForm> getInstituteDetails(Long formId);
 }

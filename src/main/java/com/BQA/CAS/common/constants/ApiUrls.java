@@ -10,4 +10,5 @@ public final class ApiUrls {
     public static final String APPROVE_EDUSCRIBE = BASE_URL + "user/approve-eduscribe";
     public static final String GET_ALL_INSTITUTES = BASE_URL + "dfo/get-institute";
     public static final String GET_INSTITUTE_BY_EMAIL = BASE_URL + "institute/get-institute";
+    public static final String GET_INSTITUTE_DETAILS = BASE_URL + "user/get-institute-details";
 }

@@ -173,6 +173,18 @@ public class InstituteFormServiceImpl implements InstitutionFormService {
         return response;
     }
 
+    public CommonResponse<InstituteForm> getInstituteDetails(Long formId){
+        if(formId ==null){
+            throw new RuntimeException("formid cannot be null");
+        }
+        InstituteForm instituteForm = repository.getByFormId(formId);
+        if(instituteForm==null){
+            throw new RuntimeException("No record found");
+        }
+        CommonResponse response = new CommonResponse();
+        response.setData(instituteForm);
+        return response;
+    }
 
     public String getUserNameRequest() {
         HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.currentRequestAttributes()).getRequest();

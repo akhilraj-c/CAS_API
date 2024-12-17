@@ -87,4 +87,13 @@ public class InstituteFormController {
             throw e;        }
     }
 
+    @GetMapping(ApiUrls.GET_INSTITUTE_DETAILS)
+    public ResponseEntity<CommonResponse<InstituteForm>> getInstitutesDetails(@RequestParam Long formId) {
+        try {
+            final CommonResponse<InstituteForm> response = service.getInstituteDetails(formId);
+            return ResponseEntity.ok(response);
+        } catch (Exception e) {
+            throw e;        }
+    }
+
 }
