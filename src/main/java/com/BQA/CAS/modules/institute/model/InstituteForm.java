@@ -208,4 +208,483 @@ public class InstituteForm {
         updatedTime = System.currentTimeMillis();
     }
 
+    public Long getFormId() {
+        return formId;
+    }
+
+    public void setFormId(Long formId) {
+        this.formId = formId;
+    }
+
+    public Long getFormUniqueId() {
+        return formUniqueId;
+    }
+
+    public void setFormUniqueId(Long formUniqueId) {
+        this.formUniqueId = formUniqueId;
+    }
+
+    public String getInstitutionName() {
+        return institutionName;
+    }
+
+    public void setInstitutionName(String institutionName) {
+        this.institutionName = institutionName;
+    }
+
+    public String getInstAppLicNo() {
+        return instAppLicNo;
+    }
+
+    public void setInstAppLicNo(String instAppLicNo) {
+        this.instAppLicNo = instAppLicNo;
+    }
+
+    public Integer getLicenseType() {
+        return licenseType;
+    }
+
+    public void setLicenseType(Integer licenseType) {
+        this.licenseType = licenseType;
+    }
+
+    public String getOthersData() {
+        return othersData;
+    }
+
+    public void setOthersData(String othersData) {
+        this.othersData = othersData;
+    }
+
+    public String getNotApplicable() {
+        return notApplicable;
+    }
+
+    public void setNotApplicable(String notApplicable) {
+        this.notApplicable = notApplicable;
+    }
+
+    public String getApprovalDocFile() {
+        return approvalDocFile;
+    }
+
+    public void setApprovalDocFile(String approvalDocFile) {
+        this.approvalDocFile = approvalDocFile;
+    }
+
+    public Long getIssueDate() {
+        return issueDate;
+    }
+
+    public void setIssueDate(Long issueDate) {
+        this.issueDate = issueDate;
+    }
+
+    public Long getExpDate() {
+        return expDate;
+    }
+
+    public void setExpDate(Long expDate) {
+        this.expDate = expDate;
+    }
+
+    public Integer getIsBqaReviewed() {
+        return isBqaReviewed;
+    }
+
+    public void setIsBqaReviewed(Integer isBqaReviewed) {
+        this.isBqaReviewed = isBqaReviewed;
+    }
+
+    public String getBqaReviewComment() {
+        return bqaReviewComment;
+    }
+
+    public void setBqaReviewComment(String bqaReviewComment) {
+        this.bqaReviewComment = bqaReviewComment;
+    }
+
+    public Long getReviewIssueDate() {
+        return reviewIssueDate;
+    }
+
+    public void setReviewIssueDate(Long reviewIssueDate) {
+        this.reviewIssueDate = reviewIssueDate;
+    }
+
+    public String getReviewJudResult() {
+        return reviewJudResult;
+    }
+
+    public void setReviewJudResult(String reviewJudResult) {
+        this.reviewJudResult = reviewJudResult;
+    }
+
+    public Integer getIsOfferingNanLocCourseQa() {
+        return isOfferingNanLocCourseQa;
+    }
+
+    public void setIsOfferingNanLocCourseQa(Integer isOfferingNanLocCourseQa) {
+        this.isOfferingNanLocCourseQa = isOfferingNanLocCourseQa;
+    }
+
+    public String getOfferingDescription() {
+        return offeringDescription;
+    }
+
+    public void setOfferingDescription(String offeringDescription) {
+        this.offeringDescription = offeringDescription;
+    }
+
+    public String getPlannedSubDate() {
+        return plannedSubDate;
+    }
+
+    public void setPlannedSubDate(String plannedSubDate) {
+        this.plannedSubDate = plannedSubDate;
+    }
+
+    public Long getRandomDate() {
+        return randomDate;
+    }
+
+    public void setRandomDate(Long randomDate) {
+        this.randomDate = randomDate;
+    }
+
+    public String getContactPersonName() {
+        return contactPersonName;
+    }
+
+    public void setContactPersonName(String contactPersonName) {
+        this.contactPersonName = contactPersonName;
+    }
+
+    public String getContactPersonEmail() {
+        return contactPersonEmail;
+    }
+
+    public void setContactPersonEmail(String contactPersonEmail) {
+        this.contactPersonEmail = contactPersonEmail;
+    }
+
+    public String getContactPersonNumber() {
+        return contactPersonNumber;
+    }
+
+    public void setContactPersonNumber(String contactPersonNumber) {
+        this.contactPersonNumber = contactPersonNumber;
+    }
+
+    public String getContactPersonTitle() {
+        return contactPersonTitle;
+    }
+
+    public void setContactPersonTitle(String contactPersonTitle) {
+        this.contactPersonTitle = contactPersonTitle;
+    }
+
+    public Integer getStatus() {
+        return status;
+    }
+
+    public void setStatus(Integer status) {
+        this.status = status;
+    }
+
+    public Integer getSubStatus() {
+        return subStatus;
+    }
+
+    public void setSubStatus(Integer subStatus) {
+        this.subStatus = subStatus;
+    }
+
+    public String getCompletedStatus() {
+        return completedStatus;
+    }
+
+    public void setCompletedStatus(String completedStatus) {
+        this.completedStatus = completedStatus;
+    }
+
+    public Integer getResubmitStatus() {
+        return resubmitStatus;
+    }
+
+    public void setResubmitStatus(Integer resubmitStatus) {
+        this.resubmitStatus = resubmitStatus;
+    }
+
+    public Long getResubmitCount() {
+        return resubmitCount;
+    }
+
+    public void setResubmitCount(Long resubmitCount) {
+        this.resubmitCount = resubmitCount;
+    }
+
+    public Long getLastResubmitDate() {
+        return lastResubmitDate;
+    }
+
+    public void setLastResubmitDate(Long lastResubmitDate) {
+        this.lastResubmitDate = lastResubmitDate;
+    }
+
+    public Long getCurrentSubmitDate() {
+        return currentSubmitDate;
+    }
+
+    public void setCurrentSubmitDate(Long currentSubmitDate) {
+        this.currentSubmitDate = currentSubmitDate;
+    }
+
+    public Integer getCurrent_stage() {
+        return current_stage;
+    }
+
+    public void setCurrent_stage(Integer current_stage) {
+        this.current_stage = current_stage;
+    }
+
+    public Integer getDateExtensionStatus() {
+        return dateExtensionStatus;
+    }
+
+    public void setDateExtensionStatus(Integer dateExtensionStatus) {
+        this.dateExtensionStatus = dateExtensionStatus;
+    }
+
+    public String getDateExtensionReason() {
+        return dateExtensionReason;
+    }
+
+    public void setDateExtensionReason(String dateExtensionReason) {
+        this.dateExtensionReason = dateExtensionReason;
+    }
+
+    public Long getRequestedExtensionDate() {
+        return requestedExtensionDate;
+    }
+
+    public void setRequestedExtensionDate(Long requestedExtensionDate) {
+        this.requestedExtensionDate = requestedExtensionDate;
+    }
+
+    public Integer getIsDateExtensionRequested() {
+        return isDateExtensionRequested;
+    }
+
+    public void setIsDateExtensionRequested(Integer isDateExtensionRequested) {
+        this.isDateExtensionRequested = isDateExtensionRequested;
+    }
+
+    public String getForm_flow_history() {
+        return form_flow_history;
+    }
+
+    public void setForm_flow_history(String form_flow_history) {
+        this.form_flow_history = form_flow_history;
+    }
+
+    public Long getAssignedAppManager() {
+        return assignedAppManager;
+    }
+
+    public void setAssignedAppManager(Long assignedAppManager) {
+        this.assignedAppManager = assignedAppManager;
+    }
+
+    public Long getInstitutionId() {
+        return institutionId;
+    }
+
+    public void setInstitutionId(Long institutionId) {
+        this.institutionId = institutionId;
+    }
+
+    public String getFactualAccuracyFile() {
+        return factualAccuracyFile;
+    }
+
+    public void setFactualAccuracyFile(String factualAccuracyFile) {
+        this.factualAccuracyFile = factualAccuracyFile;
+    }
+
+    public String getFactualAccuracyComment() {
+        return factualAccuracyComment;
+    }
+
+    public void setFactualAccuracyComment(String factualAccuracyComment) {
+        this.factualAccuracyComment = factualAccuracyComment;
+    }
+
+    public Long getInstituteFactualAccuracyDeadLine() {
+        return instituteFactualAccuracyDeadLine;
+    }
+
+    public void setInstituteFactualAccuracyDeadLine(Long instituteFactualAccuracyDeadLine) {
+        this.instituteFactualAccuracyDeadLine = instituteFactualAccuracyDeadLine;
+    }
+
+    public Integer getInstitutionAppeal() {
+        return institutionAppeal;
+    }
+
+    public void setInstitutionAppeal(Integer institutionAppeal) {
+        this.institutionAppeal = institutionAppeal;
+    }
+
+    public Integer getInstitutionAppealApprove() {
+        return institutionAppealApprove;
+    }
+
+    public void setInstitutionAppealApprove(Integer institutionAppealApprove) {
+        this.institutionAppealApprove = institutionAppealApprove;
+    }
+
+    public Long getInstitutionAppealExpiry() {
+        return institutionAppealExpiry;
+    }
+
+    public void setInstitutionAppealExpiry(Long institutionAppealExpiry) {
+        this.institutionAppealExpiry = institutionAppealExpiry;
+    }
+
+    public String getOverAllApproveHistory() {
+        return overAllApproveHistory;
+    }
+
+    public void setOverAllApproveHistory(String overAllApproveHistory) {
+        this.overAllApproveHistory = overAllApproveHistory;
+    }
+
+    public Long getCurrentStatusDueDate() {
+        return currentStatusDueDate;
+    }
+
+    public void setCurrentStatusDueDate(Long currentStatusDueDate) {
+        this.currentStatusDueDate = currentStatusDueDate;
+    }
+
+    public String getRegulatoryOthersData() {
+        return regulatoryOthersData;
+    }
+
+    public void setRegulatoryOthersData(String regulatoryOthersData) {
+        this.regulatoryOthersData = regulatoryOthersData;
+    }
+
+    public String getLicencedByOthersData() {
+        return licencedByOthersData;
+    }
+
+    public void setLicencedByOthersData(String licencedByOthersData) {
+        this.licencedByOthersData = licencedByOthersData;
+    }
+
+    public String getInstitutionTypeOtherData() {
+        return institutionTypeOtherData;
+    }
+
+    public void setInstitutionTypeOtherData(String institutionTypeOtherData) {
+        this.institutionTypeOtherData = institutionTypeOtherData;
+    }
+
+    public String getFieldOtherData() {
+        return fieldOtherData;
+    }
+
+    public void setFieldOtherData(String fieldOtherData) {
+        this.fieldOtherData = fieldOtherData;
+    }
+
+    public String getRejectionReason() {
+        return rejectionReason;
+    }
+
+    public void setRejectionReason(String rejectionReason) {
+        this.rejectionReason = rejectionReason;
+    }
+
+    public Long getRejectionDate() {
+        return rejectionDate;
+    }
+
+    public void setRejectionDate(Long rejectionDate) {
+        this.rejectionDate = rejectionDate;
+    }
+
+    public Integer getRejectedByUserType() {
+        return RejectedByUserType;
+    }
+
+    public void setRejectedByUserType(Integer rejectedByUserType) {
+        RejectedByUserType = rejectedByUserType;
+    }
+
+    public Integer getTerminatedMailSent() {
+        return terminatedMailSent;
+    }
+
+    public void setTerminatedMailSent(Integer terminatedMailSent) {
+        this.terminatedMailSent = terminatedMailSent;
+    }
+
+    public Integer getRemainderMailSent() {
+        return remainderMailSent;
+    }
+
+    public void setRemainderMailSent(Integer remainderMailSent) {
+        this.remainderMailSent = remainderMailSent;
+    }
+
+    public String getCreatedIp() {
+        return createdIp;
+    }
+
+    public void setCreatedIp(String createdIp) {
+        this.createdIp = createdIp;
+    }
+
+    public String getUpdatedIp() {
+        return updatedIp;
+    }
+
+    public void setUpdatedIp(String updatedIp) {
+        this.updatedIp = updatedIp;
+    }
+
+    public Long getCreatedAppId() {
+        return createdAppId;
+    }
+
+    public void setCreatedAppId(Long createdAppId) {
+        this.createdAppId = createdAppId;
+    }
+
+    public Long getUpdatedAppId() {
+        return updatedAppId;
+    }
+
+    public void setUpdatedAppId(Long updatedAppId) {
+        this.updatedAppId = updatedAppId;
+    }
+
+    public Long getCreatedTime() {
+        return createdTime;
+    }
+
+    public void setCreatedTime(Long createdTime) {
+        this.createdTime = createdTime;
+    }
+
+    public Long getUpdatedTime() {
+        return updatedTime;
+    }
+
+    public void setUpdatedTime(Long updatedTime) {
+        this.updatedTime = updatedTime;
+    }
 }
