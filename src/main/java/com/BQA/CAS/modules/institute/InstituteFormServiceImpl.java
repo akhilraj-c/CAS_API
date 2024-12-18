@@ -3,7 +3,7 @@ package com.BQA.CAS.modules.institute;
 import com.BQA.CAS.authentication.JwtUtils;
 import com.BQA.CAS.common.response.CommonResponse;
 import com.BQA.CAS.common.response.PostSuccessResponse;
-import com.BQA.CAS.modules.auth.User;
+import com.BQA.CAS.modules.auth.model.User;
 import com.BQA.CAS.modules.auth.UserRepository;
 import com.BQA.CAS.modules.institute.model.InstituteForm;
 import com.BQA.CAS.modules.institute.model.RegistrationRequest;

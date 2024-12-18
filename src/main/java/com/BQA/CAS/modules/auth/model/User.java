@@ -1,4 +1,4 @@
-package com.BQA.CAS.modules.auth;
+package com.BQA.CAS.modules.auth.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;

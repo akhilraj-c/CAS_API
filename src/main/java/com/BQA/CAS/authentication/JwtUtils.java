@@ -13,13 +13,23 @@ public class JwtUtils {
     // Generate a secure key using Keys.secretKeyFor(SignatureAlgorithm)
     private final Key jwtSecret = Keys.secretKeyFor(SignatureAlgorithm.HS512);
 
-    private final int jwtExpirationMs = 1 * 60 * 60 * 1000; // 1 hour
+    public static final int jwtExpirationMs = 1 * 60 * 60 * 1000; // 1 hour
+    public static final int jwtRefreshExpiration = 2 * 60 * 60 * 1000; // 2 hour
 
     public String generateToken(String username) {
         return Jwts.builder()
                 .setSubject(username)
                 .setIssuedAt(new Date())
                 .setExpiration(new Date((new Date()).getTime() + jwtExpirationMs))
+                .signWith(jwtSecret)
+                .compact();
+    }
+
+    public String generateRefreshToken(String username) {
+        return Jwts.builder()
+                .setSubject(username)
+                .setIssuedAt(new Date())
+                .setExpiration(new Date((new Date()).getTime() + jwtRefreshExpiration))
                 .signWith(jwtSecret)
                 .compact();
     }

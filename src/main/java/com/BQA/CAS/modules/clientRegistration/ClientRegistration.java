@@ -17,24 +17,49 @@ public class ClientRegistration {
     private String browserName;
     private String browserVersion;
     private String platformOS;
-    private String language;
+    private String appVersion;
+    private String deviceToken;
 
     @Column(columnDefinition = "TEXT")
     private String ipAddress;
 
+    private Integer count;
+
     private Long createdTime;
     private Long updatedTime;
 
+    private Long createdAppId;
+    private Long updatedAppId;
+
     @PrePersist
     public void prePersist() {
+        count = 1;
         createdTime = System.currentTimeMillis();
         updatedTime = System.currentTimeMillis();
     }
 
     @PreUpdate
     public void preUpdate() {
+        count = count+1;
         updatedTime = System.currentTimeMillis();
     }
+
+    public String getAppVersion() {
+        return appVersion;
+    }
+
+    public void setAppVersion(String appVersion) {
+        this.appVersion = appVersion;
+    }
+
+    public String getDeviceToken() {
+        return deviceToken;
+    }
+
+    public void setDeviceToken(String deviceToken) {
+        this.deviceToken = deviceToken;
+    }
+
     public Long getUpdatedTime() {
         return updatedTime;
     }
@@ -57,14 +82,6 @@ public class ClientRegistration {
 
     public void setIpAddress(String ipAddress) {
         this.ipAddress = ipAddress;
-    }
-
-    public String getLanguage() {
-        return language;
-    }
-
-    public void setLanguage(String language) {
-        this.language = language;
     }
 
     public String getPlatformOS() {
@@ -105,5 +122,29 @@ public class ClientRegistration {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public Integer getCount() {
+        return count;
+    }
+
+    public void setCount(Integer count) {
+        this.count = count;
+    }
+
+    public Long getCreatedAppId() {
+        return createdAppId;
+    }
+
+    public void setCreatedAppId(Long createdAppId) {
+        this.createdAppId = createdAppId;
+    }
+
+    public Long getUpdatedAppId() {
+        return updatedAppId;
+    }
+
+    public void setUpdatedAppId(Long updatedAppId) {
+        this.updatedAppId = updatedAppId;
     }
 }

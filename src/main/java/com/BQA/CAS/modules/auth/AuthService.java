@@ -2,10 +2,8 @@ package com.BQA.CAS.modules.auth;
 
 import com.BQA.CAS.authentication.JwtUtils;
 import com.BQA.CAS.common.constants.Enum.UserType;
-import com.BQA.CAS.common.constants.ErrorCode;
 import com.BQA.CAS.common.response.CommonResponse;
-import com.BQA.CAS.modules.auth.model.LoginRequest;
-import com.BQA.CAS.modules.auth.model.LoginResponse;
+import com.BQA.CAS.modules.auth.model.*;
 import org.hibernate.service.spi.ServiceException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -25,6 +23,9 @@ public class AuthService implements UserDetailsService {
     @Autowired
     private JwtUtils jwtUtils;
 
+    @Autowired
+    UserLoginInfoRepository userLoginInfoRepository;
+
     public String register(User user) {
         if (userRepository.existsByUsername(user.getUsername())) {
             throw new RuntimeException("Username already exists!");
@@ -38,7 +39,7 @@ public class AuthService implements UserDetailsService {
     }
 
     public CommonResponse<LoginResponse> login(LoginRequest request) {
-        if(request.getAppId().isEmpty()){
+        if(request.getAppId()==null){
             throw new RuntimeException("AppId is required!");
         }
         if(request.getUsername().isEmpty()){
@@ -50,10 +51,31 @@ public class AuthService implements UserDetailsService {
         Optional<User> userOpt = userRepository.findByEmail(request.getUsername());
 
         if (userOpt.isEmpty() || !request.getPassword().equals(userOpt.get().getPassword())) {
-            throw new RuntimeException("Invalid username or password!");
+            throw new IllegalArgumentException("Request failed: Invalid username or password.");
         }
+
         String token = jwtUtils.generateToken(request.getUsername());
+        String refreshToken = jwtUtils.generateRefreshToken(request.getUsername());
         LoginResponse response = new LoginResponse();
+
+        UserLoginInfo userLoginInfo = userLoginInfoRepository.getByUserIdAndAppId(userOpt.get().getUserId(),request.getAppId());
+        if (userLoginInfo == null) {
+            userLoginInfo = new UserLoginInfo();
+            userLoginInfo.setUserId(userOpt.get().getUserId());
+            userLoginInfo.setUserType(userOpt.get().getUserType());
+            userLoginInfo.setAppId(request.getAppId());
+            userLoginInfo.setCreatedAppId(request.getAppId());
+        }
+        userLoginInfo.setToken(token);
+        userLoginInfo.setRefreshToken(refreshToken);
+        userLoginInfo.setExpiryTime(System.currentTimeMillis() + jwtUtils.jwtExpirationMs);
+        userLoginInfo.setUpdatedAppId(request.getAppId());
+//        userLoginInfo.setPublicKey(publicKey);
+//        userLoginInfo.setPrivateKey(privateKey);
+//        userLoginInfo.setAesKey(aesKey);
+//        userLoginInfo.setAesKeyEncrypted(encryptedAESKey);
+
+        userLoginInfoRepository.save(userLoginInfo);
         response.setAppId(request.getAppId());
         response.setUsername(userOpt.get().getEmail());
         response.setUserType(userOpt.get().getUserType());

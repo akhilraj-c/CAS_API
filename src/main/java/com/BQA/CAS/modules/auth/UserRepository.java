@@ -1,5 +1,6 @@
 package com.BQA.CAS.modules.auth;
 
+import com.BQA.CAS.modules.auth.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.Optional;
 

@@ -5,7 +5,7 @@ public class LoginResponse {
     private String token;
     private int userType;
     private int subType;
-    private String appId;
+    private Long appId;
     private Long userId;
 
     public Long getUserId() {
@@ -48,11 +48,11 @@ public class LoginResponse {
         this.subType = subType;
     }
 
-    public String getAppId() {
+    public Long getAppId() {
         return appId;
     }
 
-    public void setAppId(String appId) {
+    public void setAppId(Long appId) {
         this.appId = appId;
     }
 }

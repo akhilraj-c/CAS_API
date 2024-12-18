@@ -1,10 +1,11 @@
 package com.BQA.CAS.modules.auth.model;
 
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 
 public class LoginRequest {
-    @NotBlank(message = "appId is required")
-    private String appId;
+    @NotNull(message = "appId must not be null")
+    private Long appId;
 
     @NotBlank(message = "username is required")
     private String username;
@@ -12,7 +13,7 @@ public class LoginRequest {
     @NotBlank(message = "password is required")
     private String password;
 
-    public @NotBlank(message = "appId is required") String getAppId() {
+    public @NotNull(message = "appId must not be null") Long getAppId() {
         return appId;
     }
 
