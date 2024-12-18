@@ -4,6 +4,8 @@ import com.BQA.CAS.authentication.JwtUtils;
 import com.BQA.CAS.common.constants.Enum.UserType;
 import com.BQA.CAS.common.response.CommonResponse;
 import com.BQA.CAS.modules.auth.model.*;
+import com.BQA.CAS.modules.institute.InstituteFormRepository;
+import com.BQA.CAS.modules.institute.model.InstituteForm;
 import org.hibernate.service.spi.ServiceException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -25,6 +27,9 @@ public class AuthService implements UserDetailsService {
 
     @Autowired
     UserLoginInfoRepository userLoginInfoRepository;
+
+    @Autowired
+    InstituteFormRepository instituteFormRepository;
 
     public String register(User user) {
         if (userRepository.existsByUsername(user.getUsername())) {
@@ -56,7 +61,7 @@ public class AuthService implements UserDetailsService {
 
         String token = jwtUtils.generateToken(request.getUsername());
         String refreshToken = jwtUtils.generateRefreshToken(request.getUsername());
-        LoginResponse response = new LoginResponse();
+
 
         UserLoginInfo userLoginInfo = userLoginInfoRepository.getByUserIdAndAppId(userOpt.get().getUserId(),request.getAppId());
         if (userLoginInfo == null) {
@@ -74,16 +79,29 @@ public class AuthService implements UserDetailsService {
 //        userLoginInfo.setPrivateKey(privateKey);
 //        userLoginInfo.setAesKey(aesKey);
 //        userLoginInfo.setAesKeyEncrypted(encryptedAESKey);
-
         userLoginInfoRepository.save(userLoginInfo);
-        response.setAppId(request.getAppId());
-        response.setUsername(userOpt.get().getEmail());
-        response.setUserType(userOpt.get().getUserType());
-        response.setSubType(userOpt.get().getSubType());
-        response.setUserId(userOpt.get().getUserId());
-        response.setToken(token);
+
+        LoginResponse data = new LoginResponse();
+        data.setAppId(request.getAppId());
+        data.setUsername(userOpt.get().getEmail());
+        data.setUserType(userOpt.get().getUserType());
+        data.setSubType(userOpt.get().getSubType());
+        data.setUserId(userOpt.get().getUserId());
+        List<InstituteForm> instituteForm = instituteFormRepository.findByContactPersonEmail(userOpt.get().getEmail());
+        data.setListingStatus(null);
+        if(instituteForm.size()>0){
+            data.setInstituteName(instituteForm.get(0).getInstitutionName());
+            if(instituteForm.get(0).getStatus()>=5){
+                data.setListingStatus("1");
+            }else{
+                data.setListingStatus("0");
+            }
+            data.setListingId(String.valueOf(instituteForm.get(0).getFormId()));
+        }
+        data.setToken(token);
+        data.setRefreshToken(refreshToken);
         CommonResponse finalResponse = new CommonResponse();
-        finalResponse.setData(response);
+        finalResponse.setData(data);
 
         return finalResponse;
     }

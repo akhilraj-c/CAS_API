@@ -3,10 +3,14 @@ package com.BQA.CAS.modules.auth.model;
 public class LoginResponse {
     private String username;
     private String token;
+    private String refreshToken;
     private int userType;
     private int subType;
     private Long appId;
     private Long userId;
+    private String instituteName;
+    private String listingStatus;
+    private String listingId;
 
     public Long getUserId() {
         return userId;
@@ -54,5 +58,37 @@ public class LoginResponse {
 
     public void setAppId(Long appId) {
         this.appId = appId;
+    }
+
+    public String getInstituteName() {
+        return instituteName;
+    }
+
+    public void setInstituteName(String instituteName) {
+        this.instituteName = instituteName;
+    }
+
+    public String getListingStatus() {
+        return listingStatus;
+    }
+
+    public void setListingStatus(String listingStatus) {
+        this.listingStatus = listingStatus;
+    }
+
+    public String getListingId() {
+        return listingId;
+    }
+
+    public void setListingId(String listingId) {
+        this.listingId = listingId;
+    }
+
+    public String getRefreshToken() {
+        return refreshToken;
+    }
+
+    public void setRefreshToken(String refreshToken) {
+        this.refreshToken = refreshToken;
     }
 }
