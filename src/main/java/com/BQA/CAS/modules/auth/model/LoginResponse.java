@@ -11,6 +11,15 @@ public class LoginResponse {
     private String instituteName;
     private String listingStatus;
     private String listingId;
+    private Long formUniqueId;
+
+    public Long getFormUniqueId() {
+        return formUniqueId;
+    }
+
+    public void setFormUniqueId(Long formUniqueId) {
+        this.formUniqueId = formUniqueId;
+    }
 
     public Long getUserId() {
         return userId;

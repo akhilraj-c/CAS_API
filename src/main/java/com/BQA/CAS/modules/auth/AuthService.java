@@ -97,6 +97,7 @@ public class AuthService implements UserDetailsService {
                 data.setListingStatus("0");
             }
             data.setListingId(String.valueOf(instituteForm.get(0).getFormId()));
+            data.setFormUniqueId(instituteForm.get(0).getFormId());
         }
         data.setToken(token);
         data.setRefreshToken(refreshToken);

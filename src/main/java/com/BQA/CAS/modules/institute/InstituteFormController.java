@@ -2,6 +2,7 @@ package com.BQA.CAS.modules.institute;
 
 import com.BQA.CAS.common.response.CommonResponse;
 import com.BQA.CAS.common.response.PostSuccessResponse;
+import com.BQA.CAS.modules.institute.model.ApproveEduscribeRequest;
 import com.BQA.CAS.modules.institute.model.InstituteForm;
 import com.BQA.CAS.modules.institute.model.RegistrationRequest;
 import com.BQA.CAS.modules.institute.model.RegistrationResponse;
@@ -57,9 +58,9 @@ public class InstituteFormController {
     }
 
     @PostMapping(ApiUrls.APPROVE_EDUSCRIBE)
-    public ResponseEntity<CommonResponse<PostSuccessResponse>> approveEduscribe(@RequestParam Long id) {
+    public ResponseEntity<CommonResponse<PostSuccessResponse>> approveEduscribe(@RequestBody ApproveEduscribeRequest request) {
         try {
-            CommonResponse<PostSuccessResponse> response = service.updateStatusByEmail(id,7);
+            CommonResponse<PostSuccessResponse> response = service.updateStatusByEmail(request.getTempListingID(),7);
             return ResponseEntity.ok(response);
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
